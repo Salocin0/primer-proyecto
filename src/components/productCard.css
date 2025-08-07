@@ -1,0 +1,9 @@
+*{
+    color:black
+}
+
+div{
+    background-color: beige;
+    border-radius: 20px;
+    margin: 20px;
+}

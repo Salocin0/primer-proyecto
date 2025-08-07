@@ -1,22 +1,25 @@
 import "./App.css";
-import Titulo from "./titulo";
+import Titulo from "./components/Titulo";
+import { useState,useEffect } from "react";
+import ProductList from "./components/ProductList";
 
 function App() {
- 
-  let mensaje= "asdasd"
+  const [mensaje,setMensaje] = useState("mensaje por defecto") //hook
+  const [count, setCount] = useState(0);
   //funciones de js
 
-  return (
-    <div>
-      <Titulo mensaje={mensaje}/>
+  useEffect(()=>{
+    console.log("count")
+  },[])
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-        deserunt nam molestias veritatis incidunt excepturi, distinctio, quia
-        quibusdam doloremque asperiores omnis ex debitis similique eius eaque?
-        Placeat optio hic debitis.
-      </p>
-    </div>
+  useEffect(()=>{
+    console.log(count)
+  },[count])
+
+  return (
+
+      <ProductList/>
+
   );
 }
 
