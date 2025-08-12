@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 function ProductList() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState("");
 
   async function fetchBack() {
     const res = await fetch("https://fakestoreapi.com/products");
@@ -16,7 +17,11 @@ function ProductList() {
     fetchBack();
   }, []);
 
-  /*if(loading){
+  useEffect(() => {
+    console.log(productos);
+  }, [productos, loading]);
+
+  /*  if(loading){
         return (<p>
             Cargando...
         </p>)
@@ -32,7 +37,7 @@ function ProductList() {
         </div>
     )*/
 
-  return(
+  /*return(
         <div>
             {
               loading && <p>Cargando... </p>
@@ -42,8 +47,29 @@ function ProductList() {
             ))    
             }
         </div>
-    )
-/*
+    )*/
+
+  function addCount(nuevoValor) {
+    setData((data) => data + " " + nuevoValor);
+  }
+
+  /*return (
+    <div>
+      {loading ? (
+        <p>Cargando... </p>
+      ) : (
+        <>
+          <p>{data} </p>
+          <div>
+          
+            <ProductCard  setCount={addCount} />
+            
+          </div>
+        </>
+      )}
+    </div>
+  );*/
+
   return (
     <div>
       {loading ? (
@@ -54,8 +80,8 @@ function ProductList() {
         ))
       )}
     </div>
-  );*/
+  );
 }
 
-// id uuid 
+// id uuid
 export default ProductList;
